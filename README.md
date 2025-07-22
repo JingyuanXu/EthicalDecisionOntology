@@ -51,7 +51,7 @@
 
 - If you wish to re-enter the rules manually, you can start from `EthicalDecisionOntology.owl` and input the SWRL rules using the SWRL tab.
 - `EquationsAndRules.rdf` is the fully saved version after rules were entered and can be used directly for reproducibility.
-- No additional plugins or scripts are required.
+- `SWRL_Only_Baseline.rdf` provides a simplified baseline version of the ethical reasoning framework, in which fuzzy category thresholds are encoded entirely within SWRL rules rather than using overlapping OWL class definitions. This configuration removes fuzzy class axioms and relies only on rule-based logic to classify decisions based on numerical thresholds.
 - All logic is encoded using standard OWL 2 + SWRL constructs.
 
 
