@@ -6,6 +6,8 @@
 
 - Executable with Protégé + Pellet
 
+- A minimal baseline version where fuzzy categories are defined only through SWRL rule conditions, with no fuzzy class modeling in OWL.
+
 
 
 ## Advanced OWL Version (Optional Extension)
