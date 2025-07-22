@@ -1,0 +1,108 @@
+@prefix ex: <http://www.semanticweb.org/ethical-decision#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+ex:D1 a ex:Decision ;
+    ex:hasAutonomyScore "0.25"^^xsd:float ;
+    ex:hasFairnessScore "0.45"^^xsd:float ;
+    ex:hasHarmScore "0.65"^^xsd:float .
+
+ex:D2 a ex:Decision ;
+    ex:hasAutonomyScore "0.75"^^xsd:float ;
+    ex:hasFairnessScore "0.35"^^xsd:float ;
+    ex:hasHarmScore "0.25"^^xsd:float .
+
+ex:D3 a ex:Decision ;
+    ex:hasAutonomyScore "0.9"^^xsd:float ;
+    ex:hasFairnessScore "0.75"^^xsd:float ;
+    ex:hasHarmScore "0.2"^^xsd:float .
+
+ex:HighAcceptabilityDecision a owl:Class ;
+    rdfs:subClassOf ex:Decision .
+
+ex:HighAutonomyDecision a owl:Class ;
+    rdfs:subClassOf ex:Decision ;
+    owl:equivalentClass [ a owl:Restriction ;
+            owl:hasValue "0.8"^^xsd:float ;
+            owl:onProperty ex:hasAutonomyScore ;
+            owl:someValuesFrom xsd:float ] .
+
+ex:HighFairnessDecision a owl:Class ;
+    rdfs:subClassOf ex:Decision ;
+    owl:equivalentClass [ a owl:Restriction ;
+            owl:hasValue "0.7"^^xsd:float ;
+            owl:onProperty ex:hasFairnessScore ;
+            owl:someValuesFrom xsd:float ] .
+
+ex:HighHarmDecision a owl:Class ;
+    rdfs:subClassOf ex:Decision ;
+    owl:equivalentClass [ a owl:Restriction ;
+            owl:hasValue "0.7"^^xsd:float ;
+            owl:onProperty ex:hasHarmScore ;
+            owl:someValuesFrom xsd:float ] .
+
+ex:LowAutonomyDecision a owl:Class ;
+    rdfs:subClassOf ex:Decision ;
+    owl:equivalentClass [ a owl:Restriction ;
+            owl:hasValue "0.3"^^xsd:float ;
+            owl:onProperty ex:hasAutonomyScore ;
+            owl:someValuesFrom xsd:float ] .
+
+ex:LowFairnessDecision a owl:Class ;
+    rdfs:subClassOf ex:Decision ;
+    owl:equivalentClass [ a owl:Restriction ;
+            owl:hasValue "0.4"^^xsd:float ;
+            owl:onProperty ex:hasFairnessScore ;
+            owl:someValuesFrom xsd:float ] .
+
+ex:LowHarmDecision a owl:Class ;
+    rdfs:subClassOf ex:Decision ;
+    owl:equivalentClass [ a owl:Restriction ;
+            owl:hasValue "0.4"^^xsd:float ;
+            owl:onProperty ex:hasHarmScore ;
+            owl:someValuesFrom xsd:float ] .
+
+ex:MediumAcceptabilityDecision a owl:Class ;
+    rdfs:subClassOf ex:Decision .
+
+ex:MediumFairnessDecision a owl:Class ;
+    rdfs:subClassOf ex:Decision ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( [ a owl:Restriction ;
+                        owl:hasValue "0.3"^^xsd:float ;
+                        owl:onProperty ex:hasFairnessScore ;
+                        owl:someValuesFrom xsd:float ] [ a owl:Restriction ;
+                        owl:hasValue "0.8"^^xsd:float ;
+                        owl:onProperty ex:hasFairnessScore ;
+                        owl:someValuesFrom xsd:float ] ) ] .
+
+ex:MediumHarmDecision a owl:Class ;
+    rdfs:subClassOf ex:Decision ;
+    owl:equivalentClass [ a owl:Class ;
+            owl:intersectionOf ( [ a owl:Restriction ;
+                        owl:hasValue "0.3"^^xsd:float ;
+                        owl:onProperty ex:hasHarmScore ;
+                        owl:someValuesFrom xsd:float ] [ a owl:Restriction ;
+                        owl:hasValue "0.8"^^xsd:float ;
+                        owl:onProperty ex:hasHarmScore ;
+                        owl:someValuesFrom xsd:float ] ) ] .
+
+ex:UnacceptableDecision a owl:Class ;
+    rdfs:subClassOf ex:Decision .
+
+ex:hasAutonomyScore a owl:DatatypeProperty ;
+    rdfs:domain ex:Decision ;
+    rdfs:range xsd:float .
+
+ex:hasFairnessScore a owl:DatatypeProperty ;
+    rdfs:domain ex:Decision ;
+    rdfs:range xsd:float .
+
+ex:hasHarmScore a owl:DatatypeProperty ;
+    rdfs:domain ex:Decision ;
+    rdfs:range xsd:float .
+
+ex:Decision a owl:Class .
+
